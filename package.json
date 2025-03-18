@@ -1,6 +1,8 @@
 {
   "name": "pp-react-sdk",
-  "version": "0.1.0",
+  "private": true,
+  "private": true,
+  "version": "0.4.7",
   "description": "Product Partner React SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
