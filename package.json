@@ -2,14 +2,13 @@
   "name": "pp-react-sdk",
   "private": true,
   "private": true,
-  "version": "0.4.7",
+  "version": "0.5.1",
   "description": "Product Partner React SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest",
-    "prepare": "npm run build"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

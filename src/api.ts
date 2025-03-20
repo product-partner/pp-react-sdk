@@ -61,6 +61,55 @@ export interface Address {
     'country': string;
 }
 /**
+ * Response can be either chat content, a stream URL, a UI command, or a status message
+ * @export
+ * @interface Chat200Response
+ */
+export interface Chat200Response {
+    /**
+     * Chat message content
+     * @type {string}
+     * @memberof Chat200Response
+     */
+    'content'?: string;
+    /**
+     * URL for streaming chat responses
+     * @type {string}
+     * @memberof Chat200Response
+     */
+    'stream_url'?: string;
+    /**
+     * ID of object to show
+     * @type {string}
+     * @memberof Chat200Response
+     */
+    'ShowObjectId'?: string;
+    /**
+     * Type of object to show
+     * @type {string}
+     * @memberof Chat200Response
+     */
+    'ShowObjectType'?: string;
+    /**
+     * Type of action to perform
+     * @type {string}
+     * @memberof Chat200Response
+     */
+    'ActionType'?: string;
+    /**
+     * Status message to show in the UI
+     * @type {string}
+     * @memberof Chat200Response
+     */
+    'StatusMessage'?: string;
+    /**
+     * Associated ID
+     * @type {string}
+     * @memberof Chat200Response
+     */
+    'id'?: string;
+}
+/**
  * 
  * @export
  * @interface ChatHistory200Response
@@ -303,6 +352,31 @@ export const DocumentPublishingStateEnum = {
 
 export type DocumentPublishingStateEnum = typeof DocumentPublishingStateEnum[keyof typeof DocumentPublishingStateEnum];
 
+/**
+ * String ID for updates, object for responses
+ * @export
+ * @interface DocumentField
+ */
+export interface DocumentField {
+    /**
+     * Document ID
+     * @type {string}
+     * @memberof DocumentField
+     */
+    'id'?: string;
+    /**
+     * Document title
+     * @type {string}
+     * @memberof DocumentField
+     */
+    'title'?: string;
+    /**
+     * Document type
+     * @type {string}
+     * @memberof DocumentField
+     */
+    'type'?: string;
+}
 /**
  * 
  * @export
@@ -1225,6 +1299,12 @@ export interface UserStory {
     'id'?: string;
     /**
      * 
+     * @type {DocumentField}
+     * @memberof UserStory
+     */
+    'prd'?: DocumentField | null;
+    /**
+     * 
      * @type {string}
      * @memberof UserStory
      */
@@ -1699,7 +1779,7 @@ export const ChatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Chat200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ChatApi.chat']?.[localVarOperationServerIndex]?.url;
@@ -1778,7 +1858,7 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): AxiosPromise<object> {
+        chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): AxiosPromise<Chat200Response> {
             return localVarFp.chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1845,7 +1925,7 @@ export interface ChatApiInterface {
      * @throws {RequiredError}
      * @memberof ChatApiInterface
      */
-    chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): AxiosPromise<object>;
+    chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): AxiosPromise<Chat200Response>;
 
     /**
      * Get chat history
