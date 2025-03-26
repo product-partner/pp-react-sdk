@@ -1508,10 +1508,11 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {string} [action] Action
          * @param {boolean} [stream] Stream the response
          * @param {string} [responseFormat] Response format (html or text)
+         * @param {string} [callerType] Caller type, such as \&#39;FREE_CHAT\&#39; or \&#39;CHAT\&#39; or \&#39;COMMENT\&#39; or \&#39;EMAIL\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        chat: async (page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        chat: async (page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, callerType?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/chat/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1552,6 +1553,10 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (responseFormat !== undefined) {
                 localVarQueryParameter['response_format'] = responseFormat;
+            }
+
+            if (callerType !== undefined) {
+                localVarQueryParameter['caller_type'] = callerType;
             }
 
 
@@ -1776,11 +1781,12 @@ export const ChatApiFp = function(configuration?: Configuration) {
          * @param {string} [action] Action
          * @param {boolean} [stream] Stream the response
          * @param {string} [responseFormat] Response format (html or text)
+         * @param {string} [callerType] Caller type, such as \&#39;FREE_CHAT\&#39; or \&#39;CHAT\&#39; or \&#39;COMMENT\&#39; or \&#39;EMAIL\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Chat200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, options);
+        async chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, callerType?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Chat200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, callerType, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ChatApi.chat']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1855,11 +1861,12 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
          * @param {string} [action] Action
          * @param {boolean} [stream] Stream the response
          * @param {string} [responseFormat] Response format (html or text)
+         * @param {string} [callerType] Caller type, such as \&#39;FREE_CHAT\&#39; or \&#39;CHAT\&#39; or \&#39;COMMENT\&#39; or \&#39;EMAIL\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): AxiosPromise<Chat200Response> {
-            return localVarFp.chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, options).then((request) => request(axios, basePath));
+        chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, callerType?: string, options?: RawAxiosRequestConfig): AxiosPromise<Chat200Response> {
+            return localVarFp.chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, callerType, options).then((request) => request(axios, basePath));
         },
         /**
          * Get chat history
@@ -1921,11 +1928,12 @@ export interface ChatApiInterface {
      * @param {string} [action] Action
      * @param {boolean} [stream] Stream the response
      * @param {string} [responseFormat] Response format (html or text)
+     * @param {string} [callerType] Caller type, such as \&#39;FREE_CHAT\&#39; or \&#39;CHAT\&#39; or \&#39;COMMENT\&#39; or \&#39;EMAIL\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApiInterface
      */
-    chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig): AxiosPromise<Chat200Response>;
+    chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, callerType?: string, options?: RawAxiosRequestConfig): AxiosPromise<Chat200Response>;
 
     /**
      * Get chat history
@@ -1987,12 +1995,13 @@ export class ChatApi extends BaseAPI implements ChatApiInterface {
      * @param {string} [action] Action
      * @param {boolean} [stream] Stream the response
      * @param {string} [responseFormat] Response format (html or text)
+     * @param {string} [callerType] Caller type, such as \&#39;FREE_CHAT\&#39; or \&#39;CHAT\&#39; or \&#39;COMMENT\&#39; or \&#39;EMAIL\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    public chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, options?: RawAxiosRequestConfig) {
-        return ChatApiFp(this.configuration).chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, options).then((request) => request(this.axios, this.basePath));
+    public chat(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, msg?: string, docIds?: string, action?: string, stream?: boolean, responseFormat?: string, callerType?: string, options?: RawAxiosRequestConfig) {
+        return ChatApiFp(this.configuration).chat(page, xUserID, xCallerID, xCallerThreadID, msg, docIds, action, stream, responseFormat, callerType, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
