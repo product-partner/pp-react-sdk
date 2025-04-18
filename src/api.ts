@@ -173,13 +173,13 @@ export interface ChatHistory200Response {
 /**
  * 
  * @export
- * @interface ChatThreadsRead200Response
+ * @interface ChatRetrieveCurrent200Response
  */
-export interface ChatThreadsRead200Response {
+export interface ChatRetrieveCurrent200Response {
     /**
      * Chat message content
      * @type {string}
-     * @memberof ChatThreadsRead200Response
+     * @memberof ChatRetrieveCurrent200Response
      */
     'content'?: string;
 }
@@ -328,6 +328,12 @@ export interface Document {
      * @memberof Document
      */
     'blob_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Document
+     */
+    'datasource_type'?: string;
 }
 
 export const DocumentTypeEnum = {
@@ -1642,7 +1648,59 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Get a specific chat thread
+         * Get the current chat thread from the session.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
+         * @param {string} [xCallerThreadID] Caller-side thread ID used in conjunction with the caller_id to identify the conversation that this message is a part of. This will be looked up against the internal thread id in Product Partner.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        chatRetrieveCurrent: async (page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/chat/thread/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            if (xCallerID != null) {
+                localVarHeaderParameter['X-Caller-ID'] = String(xCallerID);
+            }
+            if (xCallerThreadID != null) {
+                localVarHeaderParameter['X-Caller-Thread-ID'] = String(xCallerThreadID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a specific chat thread by ID.
          * @param {string} threadId 
          * @param {string} [xUserID] User ID (required when using API key)
          * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
@@ -1650,10 +1708,10 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        chatThreadsRead: async (threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        chatThreadRead: async (threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'threadId' is not null or undefined
-            assertParamExists('chatThreadsRead', 'threadId', threadId)
-            const localVarPath = `/chat/threads/{thread_id}/`
+            assertParamExists('chatThreadRead', 'threadId', threadId)
+            const localVarPath = `/chat/thread/{thread_id}/`
                 .replace(`{${"thread_id"}}`, encodeURIComponent(String(threadId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1809,7 +1867,22 @@ export const ChatApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get a specific chat thread
+         * Get the current chat thread from the session.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
+         * @param {string} [xCallerThreadID] Caller-side thread ID used in conjunction with the caller_id to identify the conversation that this message is a part of. This will be looked up against the internal thread id in Product Partner.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async chatRetrieveCurrent(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChatRetrieveCurrent200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.chatRetrieveCurrent(page, xUserID, xCallerID, xCallerThreadID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ChatApi.chatRetrieveCurrent']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Get a specific chat thread by ID.
          * @param {string} threadId 
          * @param {string} [xUserID] User ID (required when using API key)
          * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
@@ -1817,10 +1890,10 @@ export const ChatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async chatThreadsRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChatThreadsRead200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.chatThreadsRead(threadId, xUserID, xCallerID, xCallerThreadID, options);
+        async chatThreadRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChatRetrieveCurrent200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.chatThreadRead(threadId, xUserID, xCallerID, xCallerThreadID, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ChatApi.chatThreadsRead']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['ChatApi.chatThreadRead']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1883,7 +1956,19 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.chatHistory(page, xUserID, xCallerID, xCallerThreadID, lastCreatedDate, sortOrder, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a specific chat thread
+         * Get the current chat thread from the session.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
+         * @param {string} [xCallerThreadID] Caller-side thread ID used in conjunction with the caller_id to identify the conversation that this message is a part of. This will be looked up against the internal thread id in Product Partner.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        chatRetrieveCurrent(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatRetrieveCurrent200Response> {
+            return localVarFp.chatRetrieveCurrent(page, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific chat thread by ID.
          * @param {string} threadId 
          * @param {string} [xUserID] User ID (required when using API key)
          * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
@@ -1891,8 +1976,8 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        chatThreadsRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatThreadsRead200Response> {
-            return localVarFp.chatThreadsRead(threadId, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(axios, basePath));
+        chatThreadRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatRetrieveCurrent200Response> {
+            return localVarFp.chatThreadRead(threadId, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(axios, basePath));
         },
         /**
          * Upload a file
@@ -1950,7 +2035,19 @@ export interface ChatApiInterface {
     chatHistory(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, lastCreatedDate?: string, sortOrder?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatHistory200Response>;
 
     /**
-     * Get a specific chat thread
+     * Get the current chat thread from the session.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
+     * @param {string} [xCallerThreadID] Caller-side thread ID used in conjunction with the caller_id to identify the conversation that this message is a part of. This will be looked up against the internal thread id in Product Partner.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatApiInterface
+     */
+    chatRetrieveCurrent(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatRetrieveCurrent200Response>;
+
+    /**
+     * Get a specific chat thread by ID.
      * @param {string} threadId 
      * @param {string} [xUserID] User ID (required when using API key)
      * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
@@ -1959,7 +2056,7 @@ export interface ChatApiInterface {
      * @throws {RequiredError}
      * @memberof ChatApiInterface
      */
-    chatThreadsRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatThreadsRead200Response>;
+    chatThreadRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatRetrieveCurrent200Response>;
 
     /**
      * Upload a file
@@ -2021,7 +2118,21 @@ export class ChatApi extends BaseAPI implements ChatApiInterface {
     }
 
     /**
-     * Get a specific chat thread
+     * Get the current chat thread from the session.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
+     * @param {string} [xCallerThreadID] Caller-side thread ID used in conjunction with the caller_id to identify the conversation that this message is a part of. This will be looked up against the internal thread id in Product Partner.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatApi
+     */
+    public chatRetrieveCurrent(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig) {
+        return ChatApiFp(this.configuration).chatRetrieveCurrent(page, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a specific chat thread by ID.
      * @param {string} threadId 
      * @param {string} [xUserID] User ID (required when using API key)
      * @param {string} [xCallerID] Optional ID of the application calling the ID, used in conjunction with the caller_thread_id
@@ -2030,8 +2141,8 @@ export class ChatApi extends BaseAPI implements ChatApiInterface {
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    public chatThreadsRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig) {
-        return ChatApiFp(this.configuration).chatThreadsRead(threadId, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(this.axios, this.basePath));
+    public chatThreadRead(threadId: string, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig) {
+        return ChatApiFp(this.configuration).chatThreadRead(threadId, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
