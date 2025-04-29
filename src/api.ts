@@ -186,6 +186,44 @@ export interface ChatRetrieveCurrent200Response {
 /**
  * 
  * @export
+ * @interface ChatThreadDelete200Response
+ */
+export interface ChatThreadDelete200Response {
+    /**
+     * Operation success status
+     * @type {boolean}
+     * @memberof ChatThreadDelete200Response
+     */
+    'success'?: boolean;
+    /**
+     * Success message
+     * @type {string}
+     * @memberof ChatThreadDelete200Response
+     */
+    'message'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ChatThreadDelete500Response
+ */
+export interface ChatThreadDelete500Response {
+    /**
+     * Operation success status
+     * @type {boolean}
+     * @memberof ChatThreadDelete500Response
+     */
+    'success'?: boolean;
+    /**
+     * Error message
+     * @type {string}
+     * @memberof ChatThreadDelete500Response
+     */
+    'error'?: string;
+}
+/**
+ * 
+ * @export
  * @interface ChatUploadFile200Response
  */
 export interface ChatUploadFile200Response {
@@ -237,7 +275,7 @@ export interface Document {
      * @type {string}
      * @memberof Document
      */
-    'body'?: string;
+    'body'?: string | null;
     /**
      * 
      * @type {UserField}
@@ -327,7 +365,7 @@ export interface Document {
      * @type {string}
      * @memberof Document
      */
-    'blob_id'?: string;
+    'blob_id'?: string | null;
     /**
      * 
      * @type {string}
@@ -1700,6 +1738,45 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
+         * Delete a chat thread and all its messages from Firestore
+         * @param {string} threadId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        chatThreadDelete: async (threadId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'threadId' is not null or undefined
+            assertParamExists('chatThreadDelete', 'threadId', threadId)
+            const localVarPath = `/chat/thread/{thread_id}/`
+                .replace(`{${"thread_id"}}`, encodeURIComponent(String(threadId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get a specific chat thread by ID.
          * @param {string} threadId 
          * @param {string} [xUserID] User ID (required when using API key)
@@ -1882,6 +1959,18 @@ export const ChatApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Delete a chat thread and all its messages from Firestore
+         * @param {string} threadId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async chatThreadDelete(threadId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChatThreadDelete200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.chatThreadDelete(threadId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ChatApi.chatThreadDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Get a specific chat thread by ID.
          * @param {string} threadId 
          * @param {string} [xUserID] User ID (required when using API key)
@@ -1968,6 +2057,15 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.chatRetrieveCurrent(page, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete a chat thread and all its messages from Firestore
+         * @param {string} threadId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        chatThreadDelete(threadId: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatThreadDelete200Response> {
+            return localVarFp.chatThreadDelete(threadId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific chat thread by ID.
          * @param {string} threadId 
          * @param {string} [xUserID] User ID (required when using API key)
@@ -2045,6 +2143,15 @@ export interface ChatApiInterface {
      * @memberof ChatApiInterface
      */
     chatRetrieveCurrent(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatRetrieveCurrent200Response>;
+
+    /**
+     * Delete a chat thread and all its messages from Firestore
+     * @param {string} threadId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatApiInterface
+     */
+    chatThreadDelete(threadId: string, options?: RawAxiosRequestConfig): AxiosPromise<ChatThreadDelete200Response>;
 
     /**
      * Get a specific chat thread by ID.
@@ -2129,6 +2236,17 @@ export class ChatApi extends BaseAPI implements ChatApiInterface {
      */
     public chatRetrieveCurrent(page?: number, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, options?: RawAxiosRequestConfig) {
         return ChatApiFp(this.configuration).chatRetrieveCurrent(page, xUserID, xCallerID, xCallerThreadID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a chat thread and all its messages from Firestore
+     * @param {string} threadId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatApi
+     */
+    public chatThreadDelete(threadId: string, options?: RawAxiosRequestConfig) {
+        return ChatApiFp(this.configuration).chatThreadDelete(threadId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
