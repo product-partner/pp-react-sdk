@@ -565,6 +565,61 @@ export type DocumentsCreateRequestPublishingStateEnum = typeof DocumentsCreateRe
 /**
  * 
  * @export
+ * @interface Example
+ */
+export interface Example {
+    /**
+     * 
+     * @type {string}
+     * @memberof Example
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Example
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Example
+     */
+    'example_text': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Example
+     */
+    'is_public'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof Example
+     */
+    'organization'?: string;
+    /**
+     * 
+     * @type {UserField}
+     * @memberof Example
+     */
+    'created_by'?: UserField;
+    /**
+     * 
+     * @type {string}
+     * @memberof Example
+     */
+    'created_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Example
+     */
+    'modified_date'?: string;
+}
+/**
+ * 
+ * @export
  * @interface Goal
  */
 export interface Goal {
@@ -961,6 +1016,177 @@ export interface RegisterGoogleDocRequest {
 /**
  * 
  * @export
+ * @interface Section
+ */
+export interface Section {
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'prompt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'target_model'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'user_instructions'?: string | null;
+    /**
+     * 
+     * @type {Set<string>}
+     * @memberof Section
+     */
+    'examples'?: Set<string>;
+    /**
+     * 
+     * @type {Array<SectionContext>}
+     * @memberof Section
+     */
+    'section_contexts'?: Array<SectionContext>;
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'organization'?: string;
+    /**
+     * 
+     * @type {UserField}
+     * @memberof Section
+     */
+    'created_by'?: UserField;
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'created_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Section
+     */
+    'modified_date'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface SectionContext
+ */
+export interface SectionContext {
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'prompt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'query_string': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'section'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'organization'?: string;
+    /**
+     * 
+     * @type {UserField}
+     * @memberof SectionContext
+     */
+    'created_by'?: UserField;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'created_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContext
+     */
+    'modified_date'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface SectionContextList200Response
+ */
+export interface SectionContextList200Response {
+    /**
+     * 
+     * @type {number}
+     * @memberof SectionContextList200Response
+     */
+    'count': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContextList200Response
+     */
+    'next'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SectionContextList200Response
+     */
+    'previous'?: string | null;
+    /**
+     * 
+     * @type {Array<SectionContext>}
+     * @memberof SectionContextList200Response
+     */
+    'results': Array<SectionContext>;
+}
+/**
+ * 
+ * @export
  * @interface Status
  */
 export interface Status {
@@ -1206,6 +1432,245 @@ export interface TagsInner {
      * @memberof TagsInner
      */
     'tag'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface TargetModel
+ */
+export interface TargetModel {
+    /**
+     * 
+     * @type {string}
+     * @memberof TargetModel
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TargetModel
+     */
+    'model_name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TargetModel
+     */
+    'model_version': string;
+    /**
+     * 
+     * @type {UserField}
+     * @memberof TargetModel
+     */
+    'created_by'?: UserField;
+    /**
+     * 
+     * @type {string}
+     * @memberof TargetModel
+     */
+    'created_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TargetModel
+     */
+    'modified_date'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface Template
+ */
+export interface Template {
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'name': string;
+    /**
+     * 
+     * @type {Set<string>}
+     * @memberof Template
+     */
+    'target_models'?: Set<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'short_description'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'instructions'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'prompt': string;
+    /**
+     * 
+     * @type {Set<string>}
+     * @memberof Template
+     */
+    'examples'?: Set<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'organization'?: string;
+    /**
+     * 
+     * @type {UserField}
+     * @memberof Template
+     */
+    'created_by'?: UserField;
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'created_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Template
+     */
+    'modified_date'?: string;
+    /**
+     * 
+     * @type {Array<TemplateSection>}
+     * @memberof Template
+     */
+    'template_sections'?: Array<TemplateSection>;
+}
+/**
+ * 
+ * @export
+ * @interface TemplateExampleList200Response
+ */
+export interface TemplateExampleList200Response {
+    /**
+     * 
+     * @type {number}
+     * @memberof TemplateExampleList200Response
+     */
+    'count': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateExampleList200Response
+     */
+    'next'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateExampleList200Response
+     */
+    'previous'?: string | null;
+    /**
+     * 
+     * @type {Array<Example>}
+     * @memberof TemplateExampleList200Response
+     */
+    'results': Array<Example>;
+}
+/**
+ * 
+ * @export
+ * @interface TemplateSection
+ */
+export interface TemplateSection {
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateSection
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateSection
+     */
+    'template': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateSection
+     */
+    'section': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof TemplateSection
+     */
+    'order'?: number;
+    /**
+     * 
+     * @type {UserField}
+     * @memberof TemplateSection
+     */
+    'created_by'?: UserField;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateSection
+     */
+    'created_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateSection
+     */
+    'modified_date'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TemplateSection
+     */
+    'deleted'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface TemplateSectionList200Response
+ */
+export interface TemplateSectionList200Response {
+    /**
+     * 
+     * @type {number}
+     * @memberof TemplateSectionList200Response
+     */
+    'count': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateSectionList200Response
+     */
+    'next'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TemplateSectionList200Response
+     */
+    'previous'?: string | null;
+    /**
+     * 
+     * @type {Array<TemplateSection>}
+     * @memberof TemplateSectionList200Response
+     */
+    'results': Array<TemplateSection>;
 }
 /**
  * 
@@ -6544,6 +7009,1084 @@ export class ProgramsApi extends BaseAPI implements ProgramsApiInterface {
 
 
 /**
+ * SectionApi - axios parameter creator
+ * @export
+ */
+export const SectionApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextCreate: async (data: SectionContext, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('sectionContextCreate', 'data', data)
+            const localVarPath = `/section/context/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextDelete: async (contextId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'contextId' is not null or undefined
+            assertParamExists('sectionContextDelete', 'contextId', contextId)
+            const localVarPath = `/section/context/{context_id}/`
+                .replace(`{${"context_id"}}`, encodeURIComponent(String(contextId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextList: async (page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/section/context/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextPartialUpdate: async (contextId: string, data: SectionContext, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'contextId' is not null or undefined
+            assertParamExists('sectionContextPartialUpdate', 'contextId', contextId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('sectionContextPartialUpdate', 'data', data)
+            const localVarPath = `/section/context/{context_id}/`
+                .replace(`{${"context_id"}}`, encodeURIComponent(String(contextId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextRead: async (contextId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'contextId' is not null or undefined
+            assertParamExists('sectionContextRead', 'contextId', contextId)
+            const localVarPath = `/section/context/{context_id}/`
+                .replace(`{${"context_id"}}`, encodeURIComponent(String(contextId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextUpdate: async (contextId: string, data: SectionContext, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'contextId' is not null or undefined
+            assertParamExists('sectionContextUpdate', 'contextId', contextId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('sectionContextUpdate', 'data', data)
+            const localVarPath = `/section/context/{context_id}/`
+                .replace(`{${"context_id"}}`, encodeURIComponent(String(contextId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List or create sections.
+         * @param {Section} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionCreate: async (data: Section, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('sectionCreate', 'data', data)
+            const localVarPath = `/section/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionDelete: async (sectionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sectionId' is not null or undefined
+            assertParamExists('sectionDelete', 'sectionId', sectionId)
+            const localVarPath = `/section/{section_id}/`
+                .replace(`{${"section_id"}}`, encodeURIComponent(String(sectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List sections.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionList: async (page?: number, xUserID?: string, q?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/section/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
+            }
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {Section} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionPartialUpdate: async (sectionId: string, data: Section, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sectionId' is not null or undefined
+            assertParamExists('sectionPartialUpdate', 'sectionId', sectionId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('sectionPartialUpdate', 'data', data)
+            const localVarPath = `/section/{section_id}/`
+                .replace(`{${"section_id"}}`, encodeURIComponent(String(sectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionRead: async (sectionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sectionId' is not null or undefined
+            assertParamExists('sectionRead', 'sectionId', sectionId)
+            const localVarPath = `/section/{section_id}/`
+                .replace(`{${"section_id"}}`, encodeURIComponent(String(sectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {Section} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionUpdate: async (sectionId: string, data: Section, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sectionId' is not null or undefined
+            assertParamExists('sectionUpdate', 'sectionId', sectionId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('sectionUpdate', 'data', data)
+            const localVarPath = `/section/{section_id}/`
+                .replace(`{${"section_id"}}`, encodeURIComponent(String(sectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SectionApi - functional programming interface
+ * @export
+ */
+export const SectionApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SectionApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionContextCreate(data: SectionContext, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SectionContext>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionContextCreate(data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionContextCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionContextDelete(contextId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionContextDelete(contextId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionContextDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionContextList(page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SectionContextList200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionContextList(page, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionContextList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionContextPartialUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SectionContext>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionContextPartialUpdate(contextId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionContextPartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionContextRead(contextId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SectionContext>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionContextRead(contextId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionContextRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionContextUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SectionContext>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionContextUpdate(contextId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionContextUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List or create sections.
+         * @param {Section} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionCreate(data: Section, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Section>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionCreate(data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionDelete(sectionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionDelete(sectionId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List sections.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Section>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionList(page, xUserID, q, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {Section} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionPartialUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Section>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionPartialUpdate(sectionId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionPartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionRead(sectionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Section>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionRead(sectionId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {Section} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sectionUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Section>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sectionUpdate(sectionId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SectionApi.sectionUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * SectionApi - factory interface
+ * @export
+ */
+export const SectionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SectionApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextCreate(data: SectionContext, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext> {
+            return localVarFp.sectionContextCreate(data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextDelete(contextId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.sectionContextDelete(contextId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextList(page?: number, options?: RawAxiosRequestConfig): AxiosPromise<SectionContextList200Response> {
+            return localVarFp.sectionContextList(page, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextPartialUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext> {
+            return localVarFp.sectionContextPartialUpdate(contextId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextRead(contextId: string, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext> {
+            return localVarFp.sectionContextRead(contextId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} contextId 
+         * @param {SectionContext} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionContextUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext> {
+            return localVarFp.sectionContextUpdate(contextId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List or create sections.
+         * @param {Section} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionCreate(data: Section, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Section> {
+            return localVarFp.sectionCreate(data, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionDelete(sectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.sectionDelete(sectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List sections.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Section>> {
+            return localVarFp.sectionList(page, xUserID, q, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {Section} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionPartialUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig): AxiosPromise<Section> {
+            return localVarFp.sectionPartialUpdate(sectionId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionRead(sectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<Section> {
+            return localVarFp.sectionRead(sectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} sectionId 
+         * @param {Section} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sectionUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig): AxiosPromise<Section> {
+            return localVarFp.sectionUpdate(sectionId, data, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * SectionApi - interface
+ * @export
+ * @interface SectionApi
+ */
+export interface SectionApiInterface {
+    /**
+     * 
+     * @param {SectionContext} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionContextCreate(data: SectionContext, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext>;
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionContextDelete(contextId: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionContextList(page?: number, options?: RawAxiosRequestConfig): AxiosPromise<SectionContextList200Response>;
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {SectionContext} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionContextPartialUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext>;
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionContextRead(contextId: string, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext>;
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {SectionContext} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionContextUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig): AxiosPromise<SectionContext>;
+
+    /**
+     * List or create sections.
+     * @param {Section} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionCreate(data: Section, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Section>;
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionDelete(sectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * List sections.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {string} [q] Search query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Section>>;
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {Section} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionPartialUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig): AxiosPromise<Section>;
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionRead(sectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<Section>;
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {Section} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApiInterface
+     */
+    sectionUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig): AxiosPromise<Section>;
+
+}
+
+/**
+ * SectionApi - object-oriented interface
+ * @export
+ * @class SectionApi
+ * @extends {BaseAPI}
+ */
+export class SectionApi extends BaseAPI implements SectionApiInterface {
+    /**
+     * 
+     * @param {SectionContext} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionContextCreate(data: SectionContext, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionContextCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionContextDelete(contextId: string, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionContextDelete(contextId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionContextList(page?: number, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionContextList(page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {SectionContext} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionContextPartialUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionContextPartialUpdate(contextId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionContextRead(contextId: string, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionContextRead(contextId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} contextId 
+     * @param {SectionContext} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionContextUpdate(contextId: string, data: SectionContext, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionContextUpdate(contextId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List or create sections.
+     * @param {Section} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionCreate(data: Section, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionCreate(data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionDelete(sectionId: string, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionDelete(sectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List sections.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {string} [q] Search query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionList(page, xUserID, q, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {Section} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionPartialUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionPartialUpdate(sectionId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionRead(sectionId: string, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionRead(sectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} sectionId 
+     * @param {Section} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SectionApi
+     */
+    public sectionUpdate(sectionId: string, data: Section, options?: RawAxiosRequestConfig) {
+        return SectionApiFp(this.configuration).sectionUpdate(sectionId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
  * StatusApi - axios parameter creator
  * @export
  */
@@ -7788,6 +9331,2185 @@ export class TagsApi extends BaseAPI implements TagsApiInterface {
      */
     public tagsUpdate(tagId: string, data: Tag, xUserID?: string, options?: RawAxiosRequestConfig) {
         return TagsApiFp(this.configuration).tagsUpdate(tagId, data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * TargetmodelApi - axios parameter creator
+ * @export
+ */
+export const TargetmodelApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * List or create target models.
+         * @param {TargetModel} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelCreate: async (data: TargetModel, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('targetmodelCreate', 'data', data)
+            const localVarPath = `/targetmodel/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelDelete: async (targetmodelId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'targetmodelId' is not null or undefined
+            assertParamExists('targetmodelDelete', 'targetmodelId', targetmodelId)
+            const localVarPath = `/targetmodel/{targetmodel_id}/`
+                .replace(`{${"targetmodel_id"}}`, encodeURIComponent(String(targetmodelId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List target models.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelList: async (page?: number, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/targetmodel/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {TargetModel} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelPartialUpdate: async (targetmodelId: string, data: TargetModel, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'targetmodelId' is not null or undefined
+            assertParamExists('targetmodelPartialUpdate', 'targetmodelId', targetmodelId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('targetmodelPartialUpdate', 'data', data)
+            const localVarPath = `/targetmodel/{targetmodel_id}/`
+                .replace(`{${"targetmodel_id"}}`, encodeURIComponent(String(targetmodelId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelRead: async (targetmodelId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'targetmodelId' is not null or undefined
+            assertParamExists('targetmodelRead', 'targetmodelId', targetmodelId)
+            const localVarPath = `/targetmodel/{targetmodel_id}/`
+                .replace(`{${"targetmodel_id"}}`, encodeURIComponent(String(targetmodelId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {TargetModel} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelUpdate: async (targetmodelId: string, data: TargetModel, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'targetmodelId' is not null or undefined
+            assertParamExists('targetmodelUpdate', 'targetmodelId', targetmodelId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('targetmodelUpdate', 'data', data)
+            const localVarPath = `/targetmodel/{targetmodel_id}/`
+                .replace(`{${"targetmodel_id"}}`, encodeURIComponent(String(targetmodelId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TargetmodelApi - functional programming interface
+ * @export
+ */
+export const TargetmodelApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TargetmodelApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * List or create target models.
+         * @param {TargetModel} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async targetmodelCreate(data: TargetModel, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TargetModel>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.targetmodelCreate(data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TargetmodelApi.targetmodelCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async targetmodelDelete(targetmodelId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.targetmodelDelete(targetmodelId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TargetmodelApi.targetmodelDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List target models.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async targetmodelList(page?: number, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TargetModel>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.targetmodelList(page, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TargetmodelApi.targetmodelList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {TargetModel} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async targetmodelPartialUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TargetModel>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.targetmodelPartialUpdate(targetmodelId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TargetmodelApi.targetmodelPartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async targetmodelRead(targetmodelId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TargetModel>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.targetmodelRead(targetmodelId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TargetmodelApi.targetmodelRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {TargetModel} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async targetmodelUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TargetModel>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.targetmodelUpdate(targetmodelId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TargetmodelApi.targetmodelUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * TargetmodelApi - factory interface
+ * @export
+ */
+export const TargetmodelApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TargetmodelApiFp(configuration)
+    return {
+        /**
+         * List or create target models.
+         * @param {TargetModel} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelCreate(data: TargetModel, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel> {
+            return localVarFp.targetmodelCreate(data, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelDelete(targetmodelId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.targetmodelDelete(targetmodelId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List target models.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelList(page?: number, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<TargetModel>> {
+            return localVarFp.targetmodelList(page, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {TargetModel} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelPartialUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel> {
+            return localVarFp.targetmodelPartialUpdate(targetmodelId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelRead(targetmodelId: string, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel> {
+            return localVarFp.targetmodelRead(targetmodelId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} targetmodelId 
+         * @param {TargetModel} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        targetmodelUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel> {
+            return localVarFp.targetmodelUpdate(targetmodelId, data, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * TargetmodelApi - interface
+ * @export
+ * @interface TargetmodelApi
+ */
+export interface TargetmodelApiInterface {
+    /**
+     * List or create target models.
+     * @param {TargetModel} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApiInterface
+     */
+    targetmodelCreate(data: TargetModel, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel>;
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApiInterface
+     */
+    targetmodelDelete(targetmodelId: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * List target models.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApiInterface
+     */
+    targetmodelList(page?: number, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<TargetModel>>;
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {TargetModel} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApiInterface
+     */
+    targetmodelPartialUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel>;
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApiInterface
+     */
+    targetmodelRead(targetmodelId: string, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel>;
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {TargetModel} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApiInterface
+     */
+    targetmodelUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig): AxiosPromise<TargetModel>;
+
+}
+
+/**
+ * TargetmodelApi - object-oriented interface
+ * @export
+ * @class TargetmodelApi
+ * @extends {BaseAPI}
+ */
+export class TargetmodelApi extends BaseAPI implements TargetmodelApiInterface {
+    /**
+     * List or create target models.
+     * @param {TargetModel} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApi
+     */
+    public targetmodelCreate(data: TargetModel, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return TargetmodelApiFp(this.configuration).targetmodelCreate(data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApi
+     */
+    public targetmodelDelete(targetmodelId: string, options?: RawAxiosRequestConfig) {
+        return TargetmodelApiFp(this.configuration).targetmodelDelete(targetmodelId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List target models.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApi
+     */
+    public targetmodelList(page?: number, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return TargetmodelApiFp(this.configuration).targetmodelList(page, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {TargetModel} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApi
+     */
+    public targetmodelPartialUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig) {
+        return TargetmodelApiFp(this.configuration).targetmodelPartialUpdate(targetmodelId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApi
+     */
+    public targetmodelRead(targetmodelId: string, options?: RawAxiosRequestConfig) {
+        return TargetmodelApiFp(this.configuration).targetmodelRead(targetmodelId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} targetmodelId 
+     * @param {TargetModel} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TargetmodelApi
+     */
+    public targetmodelUpdate(targetmodelId: string, data: TargetModel, options?: RawAxiosRequestConfig) {
+        return TargetmodelApiFp(this.configuration).targetmodelUpdate(targetmodelId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * TemplateApi - axios parameter creator
+ * @export
+ */
+export const TemplateApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * List or create templates for the authenticated user\'s organization.
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateCreate: async (data: Template, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateCreate', 'data', data)
+            const localVarPath = `/template/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a template.
+         * @param {string} templateId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateDelete: async (templateId: string, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templateId' is not null or undefined
+            assertParamExists('templateDelete', 'templateId', templateId)
+            const localVarPath = `/template/{template_id}/`
+                .replace(`{${"template_id"}}`, encodeURIComponent(String(templateId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleCreate: async (data: Example, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateExampleCreate', 'data', data)
+            const localVarPath = `/template/example/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleDelete: async (exampleId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'exampleId' is not null or undefined
+            assertParamExists('templateExampleDelete', 'exampleId', exampleId)
+            const localVarPath = `/template/example/{example_id}/`
+                .replace(`{${"example_id"}}`, encodeURIComponent(String(exampleId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleList: async (page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/template/example/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExamplePartialUpdate: async (exampleId: string, data: Example, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'exampleId' is not null or undefined
+            assertParamExists('templateExamplePartialUpdate', 'exampleId', exampleId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateExamplePartialUpdate', 'data', data)
+            const localVarPath = `/template/example/{example_id}/`
+                .replace(`{${"example_id"}}`, encodeURIComponent(String(exampleId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleRead: async (exampleId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'exampleId' is not null or undefined
+            assertParamExists('templateExampleRead', 'exampleId', exampleId)
+            const localVarPath = `/template/example/{example_id}/`
+                .replace(`{${"example_id"}}`, encodeURIComponent(String(exampleId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleUpdate: async (exampleId: string, data: Example, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'exampleId' is not null or undefined
+            assertParamExists('templateExampleUpdate', 'exampleId', exampleId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateExampleUpdate', 'data', data)
+            const localVarPath = `/template/example/{example_id}/`
+                .replace(`{${"example_id"}}`, encodeURIComponent(String(exampleId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List templates for the authenticated user\'s organization.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateList: async (page?: number, xUserID?: string, q?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/template/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
+            }
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Partially update a template.
+         * @param {string} templateId 
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templatePartialUpdate: async (templateId: string, data: Template, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templateId' is not null or undefined
+            assertParamExists('templatePartialUpdate', 'templateId', templateId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templatePartialUpdate', 'data', data)
+            const localVarPath = `/template/{template_id}/`
+                .replace(`{${"template_id"}}`, encodeURIComponent(String(templateId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a template.
+         * @param {string} templateId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateRead: async (templateId: string, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templateId' is not null or undefined
+            assertParamExists('templateRead', 'templateId', templateId)
+            const localVarPath = `/template/{template_id}/`
+                .replace(`{${"template_id"}}`, encodeURIComponent(String(templateId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionCreate: async (data: TemplateSection, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateSectionCreate', 'data', data)
+            const localVarPath = `/template/section/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionDelete: async (templatesectionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templatesectionId' is not null or undefined
+            assertParamExists('templateSectionDelete', 'templatesectionId', templatesectionId)
+            const localVarPath = `/template/section/{templatesection_id}/`
+                .replace(`{${"templatesection_id"}}`, encodeURIComponent(String(templatesectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionList: async (page?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/template/section/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionPartialUpdate: async (templatesectionId: string, data: TemplateSection, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templatesectionId' is not null or undefined
+            assertParamExists('templateSectionPartialUpdate', 'templatesectionId', templatesectionId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateSectionPartialUpdate', 'data', data)
+            const localVarPath = `/template/section/{templatesection_id}/`
+                .replace(`{${"templatesection_id"}}`, encodeURIComponent(String(templatesectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionRead: async (templatesectionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templatesectionId' is not null or undefined
+            assertParamExists('templateSectionRead', 'templatesectionId', templatesectionId)
+            const localVarPath = `/template/section/{templatesection_id}/`
+                .replace(`{${"templatesection_id"}}`, encodeURIComponent(String(templatesectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionUpdate: async (templatesectionId: string, data: TemplateSection, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templatesectionId' is not null or undefined
+            assertParamExists('templateSectionUpdate', 'templatesectionId', templatesectionId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateSectionUpdate', 'data', data)
+            const localVarPath = `/template/section/{templatesection_id}/`
+                .replace(`{${"templatesection_id"}}`, encodeURIComponent(String(templatesectionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a template.
+         * @param {string} templateId 
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateUpdate: async (templateId: string, data: Template, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'templateId' is not null or undefined
+            assertParamExists('templateUpdate', 'templateId', templateId)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('templateUpdate', 'data', data)
+            const localVarPath = `/template/{template_id}/`
+                .replace(`{${"template_id"}}`, encodeURIComponent(String(templateId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TemplateApi - functional programming interface
+ * @export
+ */
+export const TemplateApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TemplateApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * List or create templates for the authenticated user\'s organization.
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateCreate(data: Template, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateCreate(data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Delete a template.
+         * @param {string} templateId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateDelete(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateDelete(templateId, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateExampleCreate(data: Example, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Example>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateExampleCreate(data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateExampleCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateExampleDelete(exampleId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateExampleDelete(exampleId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateExampleDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateExampleList(page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateExampleList200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateExampleList(page, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateExampleList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateExamplePartialUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Example>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateExamplePartialUpdate(exampleId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateExamplePartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateExampleRead(exampleId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Example>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateExampleRead(exampleId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateExampleRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateExampleUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Example>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateExampleUpdate(exampleId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateExampleUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List templates for the authenticated user\'s organization.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Template>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateList(page, xUserID, q, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Partially update a template.
+         * @param {string} templateId 
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templatePartialUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templatePartialUpdate(templateId, data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templatePartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Get a template.
+         * @param {string} templateId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateRead(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateRead(templateId, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateSectionCreate(data: TemplateSection, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateSection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateSectionCreate(data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateSectionCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateSectionDelete(templatesectionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateSectionDelete(templatesectionId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateSectionDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateSectionList(page?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateSectionList200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateSectionList(page, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateSectionList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateSectionPartialUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateSection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateSectionPartialUpdate(templatesectionId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateSectionPartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateSectionRead(templatesectionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateSection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateSectionRead(templatesectionId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateSectionRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateSectionUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateSection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateSectionUpdate(templatesectionId, data, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateSectionUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Update a template.
+         * @param {string} templateId 
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async templateUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.templateUpdate(templateId, data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplateApi.templateUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * TemplateApi - factory interface
+ * @export
+ */
+export const TemplateApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TemplateApiFp(configuration)
+    return {
+        /**
+         * List or create templates for the authenticated user\'s organization.
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateCreate(data: Template, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template> {
+            return localVarFp.templateCreate(data, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a template.
+         * @param {string} templateId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateDelete(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.templateDelete(templateId, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleCreate(data: Example, options?: RawAxiosRequestConfig): AxiosPromise<Example> {
+            return localVarFp.templateExampleCreate(data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleDelete(exampleId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.templateExampleDelete(exampleId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleList(page?: number, options?: RawAxiosRequestConfig): AxiosPromise<TemplateExampleList200Response> {
+            return localVarFp.templateExampleList(page, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExamplePartialUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig): AxiosPromise<Example> {
+            return localVarFp.templateExamplePartialUpdate(exampleId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleRead(exampleId: string, options?: RawAxiosRequestConfig): AxiosPromise<Example> {
+            return localVarFp.templateExampleRead(exampleId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} exampleId 
+         * @param {Example} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateExampleUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig): AxiosPromise<Example> {
+            return localVarFp.templateExampleUpdate(exampleId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List templates for the authenticated user\'s organization.
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Template>> {
+            return localVarFp.templateList(page, xUserID, q, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Partially update a template.
+         * @param {string} templateId 
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templatePartialUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template> {
+            return localVarFp.templatePartialUpdate(templateId, data, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a template.
+         * @param {string} templateId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateRead(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template> {
+            return localVarFp.templateRead(templateId, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionCreate(data: TemplateSection, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection> {
+            return localVarFp.templateSectionCreate(data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionDelete(templatesectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.templateSectionDelete(templatesectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} [page] A page number within the paginated result set.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionList(page?: number, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSectionList200Response> {
+            return localVarFp.templateSectionList(page, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionPartialUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection> {
+            return localVarFp.templateSectionPartialUpdate(templatesectionId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionRead(templatesectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection> {
+            return localVarFp.templateSectionRead(templatesectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} templatesectionId 
+         * @param {TemplateSection} data 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateSectionUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection> {
+            return localVarFp.templateSectionUpdate(templatesectionId, data, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a template.
+         * @param {string} templateId 
+         * @param {Template} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        templateUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template> {
+            return localVarFp.templateUpdate(templateId, data, xUserID, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * TemplateApi - interface
+ * @export
+ * @interface TemplateApi
+ */
+export interface TemplateApiInterface {
+    /**
+     * List or create templates for the authenticated user\'s organization.
+     * @param {Template} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateCreate(data: Template, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
+
+    /**
+     * Delete a template.
+     * @param {string} templateId 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateDelete(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {Example} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateExampleCreate(data: Example, options?: RawAxiosRequestConfig): AxiosPromise<Example>;
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateExampleDelete(exampleId: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateExampleList(page?: number, options?: RawAxiosRequestConfig): AxiosPromise<TemplateExampleList200Response>;
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {Example} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateExamplePartialUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig): AxiosPromise<Example>;
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateExampleRead(exampleId: string, options?: RawAxiosRequestConfig): AxiosPromise<Example>;
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {Example} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateExampleUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig): AxiosPromise<Example>;
+
+    /**
+     * List templates for the authenticated user\'s organization.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {string} [q] Search query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Template>>;
+
+    /**
+     * Partially update a template.
+     * @param {string} templateId 
+     * @param {Template} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templatePartialUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
+
+    /**
+     * Get a template.
+     * @param {string} templateId 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateRead(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
+
+    /**
+     * 
+     * @param {TemplateSection} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateSectionCreate(data: TemplateSection, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection>;
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateSectionDelete(templatesectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
+     * 
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateSectionList(page?: number, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSectionList200Response>;
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {TemplateSection} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateSectionPartialUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection>;
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateSectionRead(templatesectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection>;
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {TemplateSection} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateSectionUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig): AxiosPromise<TemplateSection>;
+
+    /**
+     * Update a template.
+     * @param {string} templateId 
+     * @param {Template} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApiInterface
+     */
+    templateUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
+
+}
+
+/**
+ * TemplateApi - object-oriented interface
+ * @export
+ * @class TemplateApi
+ * @extends {BaseAPI}
+ */
+export class TemplateApi extends BaseAPI implements TemplateApiInterface {
+    /**
+     * List or create templates for the authenticated user\'s organization.
+     * @param {Template} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateCreate(data: Template, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateCreate(data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a template.
+     * @param {string} templateId 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateDelete(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateDelete(templateId, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {Example} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateExampleCreate(data: Example, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateExampleCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateExampleDelete(exampleId: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateExampleDelete(exampleId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateExampleList(page?: number, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateExampleList(page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {Example} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateExamplePartialUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateExamplePartialUpdate(exampleId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateExampleRead(exampleId: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateExampleRead(exampleId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} exampleId 
+     * @param {Example} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateExampleUpdate(exampleId: string, data: Example, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateExampleUpdate(exampleId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List templates for the authenticated user\'s organization.
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {string} [q] Search query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateList(page?: number, xUserID?: string, q?: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateList(page, xUserID, q, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Partially update a template.
+     * @param {string} templateId 
+     * @param {Template} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templatePartialUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templatePartialUpdate(templateId, data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a template.
+     * @param {string} templateId 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateRead(templateId: string, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateRead(templateId, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {TemplateSection} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateSectionCreate(data: TemplateSection, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateSectionCreate(data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateSectionDelete(templatesectionId: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateSectionDelete(templatesectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} [page] A page number within the paginated result set.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateSectionList(page?: number, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateSectionList(page, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {TemplateSection} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateSectionPartialUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateSectionPartialUpdate(templatesectionId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateSectionRead(templatesectionId: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateSectionRead(templatesectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} templatesectionId 
+     * @param {TemplateSection} data 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateSectionUpdate(templatesectionId: string, data: TemplateSection, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateSectionUpdate(templatesectionId, data, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a template.
+     * @param {string} templateId 
+     * @param {Template} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TemplateApi
+     */
+    public templateUpdate(templateId: string, data: Template, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return TemplateApiFp(this.configuration).templateUpdate(templateId, data, xUserID, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
