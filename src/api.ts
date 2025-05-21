@@ -268,6 +268,73 @@ export interface ChatUploadFile200Response {
 /**
  * 
  * @export
+ * @interface Commit
+ */
+export interface Commit {
+    /**
+     * 
+     * @type {string}
+     * @memberof Commit
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {UserField}
+     * @memberof Commit
+     */
+    'user'?: UserField;
+    /**
+     * 
+     * @type {string}
+     * @memberof Commit
+     */
+    'commit_hash': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Commit
+     */
+    'repo': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Commit
+     */
+    'user_lines_changed'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Commit
+     */
+    'ai_lines_changed'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof Commit
+     */
+    'user_lines_list'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof Commit
+     */
+    'ai_lines_list'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof Commit
+     */
+    'created_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Commit
+     */
+    'last_updated_date'?: string;
+}
+/**
+ * 
+ * @export
  * @interface Document
  */
 export interface Document {
@@ -833,6 +900,123 @@ export interface Organization {
      */
     'name': string;
 }
+/**
+ * 
+ * @export
+ * @interface OrganizationSetup
+ */
+export interface OrganizationSetup {
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'organization'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'project_system_setup_state'?: OrganizationSetupProjectSystemSetupStateEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'repo_setup_state'?: OrganizationSetupRepoSetupStateEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'document_setup_state'?: OrganizationSetupDocumentSetupStateEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'retro_setup_state'?: OrganizationSetupRetroSetupStateEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'users_setup_state'?: OrganizationSetupUsersSetupStateEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSetup
+     */
+    'company_setup_state'?: OrganizationSetupCompanySetupStateEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OrganizationSetup
+     */
+    'setup_complete'?: boolean;
+}
+
+export const OrganizationSetupProjectSystemSetupStateEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Skipped: 'SKIPPED',
+    DontRemind: 'DONT_REMIND'
+} as const;
+
+export type OrganizationSetupProjectSystemSetupStateEnum = typeof OrganizationSetupProjectSystemSetupStateEnum[keyof typeof OrganizationSetupProjectSystemSetupStateEnum];
+export const OrganizationSetupRepoSetupStateEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Skipped: 'SKIPPED',
+    DontRemind: 'DONT_REMIND'
+} as const;
+
+export type OrganizationSetupRepoSetupStateEnum = typeof OrganizationSetupRepoSetupStateEnum[keyof typeof OrganizationSetupRepoSetupStateEnum];
+export const OrganizationSetupDocumentSetupStateEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Skipped: 'SKIPPED',
+    DontRemind: 'DONT_REMIND'
+} as const;
+
+export type OrganizationSetupDocumentSetupStateEnum = typeof OrganizationSetupDocumentSetupStateEnum[keyof typeof OrganizationSetupDocumentSetupStateEnum];
+export const OrganizationSetupRetroSetupStateEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Skipped: 'SKIPPED',
+    DontRemind: 'DONT_REMIND'
+} as const;
+
+export type OrganizationSetupRetroSetupStateEnum = typeof OrganizationSetupRetroSetupStateEnum[keyof typeof OrganizationSetupRetroSetupStateEnum];
+export const OrganizationSetupUsersSetupStateEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Skipped: 'SKIPPED',
+    DontRemind: 'DONT_REMIND'
+} as const;
+
+export type OrganizationSetupUsersSetupStateEnum = typeof OrganizationSetupUsersSetupStateEnum[keyof typeof OrganizationSetupUsersSetupStateEnum];
+export const OrganizationSetupCompanySetupStateEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Skipped: 'SKIPPED',
+    DontRemind: 'DONT_REMIND'
+} as const;
+
+export type OrganizationSetupCompanySetupStateEnum = typeof OrganizationSetupCompanySetupStateEnum[keyof typeof OrganizationSetupCompanySetupStateEnum];
+
 /**
  * 
  * @export
@@ -2872,6 +3056,329 @@ export class ChatApi extends BaseAPI implements ChatApiInterface {
      */
     public chatUploadFile(file: File, xUserID?: string, xCallerID?: string, xCallerThreadID?: string, filename?: string, contentType?: string, options?: RawAxiosRequestConfig) {
         return ChatApiFp(this.configuration).chatUploadFile(file, xUserID, xCallerID, xCallerThreadID, filename, contentType, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * CommitsApi - axios parameter creator
+ * @export
+ */
+export const CommitsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a commit entry.
+         * @param {Commit} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commitsCreate: async (data: Commit, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('commitsCreate', 'data', data)
+            const localVarPath = `/commits/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List all commits for the authenticated organization.
+         * @param {string} [hash] Filter by commit hash
+         * @param {string} [user] Filter by user id
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commitsList: async (hash?: string, user?: string, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/commits/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+            if (hash !== undefined) {
+                localVarQueryParameter['hash'] = hash;
+            }
+
+            if (user !== undefined) {
+                localVarQueryParameter['user'] = user;
+            }
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a commit by id.
+         * @param {string} commitId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commitsRead: async (commitId: string, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'commitId' is not null or undefined
+            assertParamExists('commitsRead', 'commitId', commitId)
+            const localVarPath = `/commits/{commit_id}/`
+                .replace(`{${"commit_id"}}`, encodeURIComponent(String(commitId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CommitsApi - functional programming interface
+ * @export
+ */
+export const CommitsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CommitsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a commit entry.
+         * @param {Commit} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async commitsCreate(data: Commit, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Commit>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commitsCreate(data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CommitsApi.commitsCreate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List all commits for the authenticated organization.
+         * @param {string} [hash] Filter by commit hash
+         * @param {string} [user] Filter by user id
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async commitsList(hash?: string, user?: string, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Commit>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commitsList(hash, user, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CommitsApi.commitsList']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve a commit by id.
+         * @param {string} commitId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async commitsRead(commitId: string, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Commit>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.commitsRead(commitId, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CommitsApi.commitsRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * CommitsApi - factory interface
+ * @export
+ */
+export const CommitsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CommitsApiFp(configuration)
+    return {
+        /**
+         * Create a commit entry.
+         * @param {Commit} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commitsCreate(data: Commit, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Commit> {
+            return localVarFp.commitsCreate(data, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List all commits for the authenticated organization.
+         * @param {string} [hash] Filter by commit hash
+         * @param {string} [user] Filter by user id
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commitsList(hash?: string, user?: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Commit>> {
+            return localVarFp.commitsList(hash, user, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a commit by id.
+         * @param {string} commitId 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        commitsRead(commitId: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Commit> {
+            return localVarFp.commitsRead(commitId, xUserID, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * CommitsApi - interface
+ * @export
+ * @interface CommitsApi
+ */
+export interface CommitsApiInterface {
+    /**
+     * Create a commit entry.
+     * @param {Commit} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CommitsApiInterface
+     */
+    commitsCreate(data: Commit, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Commit>;
+
+    /**
+     * List all commits for the authenticated organization.
+     * @param {string} [hash] Filter by commit hash
+     * @param {string} [user] Filter by user id
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CommitsApiInterface
+     */
+    commitsList(hash?: string, user?: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Commit>>;
+
+    /**
+     * Retrieve a commit by id.
+     * @param {string} commitId 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CommitsApiInterface
+     */
+    commitsRead(commitId: string, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<Commit>;
+
+}
+
+/**
+ * CommitsApi - object-oriented interface
+ * @export
+ * @class CommitsApi
+ * @extends {BaseAPI}
+ */
+export class CommitsApi extends BaseAPI implements CommitsApiInterface {
+    /**
+     * Create a commit entry.
+     * @param {Commit} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CommitsApi
+     */
+    public commitsCreate(data: Commit, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return CommitsApiFp(this.configuration).commitsCreate(data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List all commits for the authenticated organization.
+     * @param {string} [hash] Filter by commit hash
+     * @param {string} [user] Filter by user id
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CommitsApi
+     */
+    public commitsList(hash?: string, user?: string, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return CommitsApiFp(this.configuration).commitsList(hash, user, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a commit by id.
+     * @param {string} commitId 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CommitsApi
+     */
+    public commitsRead(commitId: string, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return CommitsApiFp(this.configuration).commitsRead(commitId, xUserID, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -6306,6 +6813,313 @@ export class JiraApi extends BaseAPI implements JiraApiInterface {
      */
     public publishDocAsEpic(docId: string, data: PublishDocAsEpicRequest, xUserID?: string, options?: RawAxiosRequestConfig) {
         return JiraApiFp(this.configuration).publishDocAsEpic(docId, data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * OrganizationApi - axios parameter creator
+ * @export
+ */
+export const OrganizationApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Partially update organization setup state
+         * @param {OrganizationSetup} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        organizationSetupPartialUpdate: async (data: OrganizationSetup, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('organizationSetupPartialUpdate', 'data', data)
+            const localVarPath = `/organization/setup/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve organization setup state
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        organizationSetupRead: async (xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/organization/setup/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update organization setup state
+         * @param {OrganizationSetup} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        organizationSetupUpdate: async (data: OrganizationSetup, xUserID?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('organizationSetupUpdate', 'data', data)
+            const localVarPath = `/organization/setup/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserIdAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-User-ID", configuration)
+
+            // authentication ApiKeyAuth required
+            await setApiKeyToObject(localVarHeaderParameter, "X-API-Key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xUserID != null) {
+                localVarHeaderParameter['X-User-ID'] = String(xUserID);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(data, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * OrganizationApi - functional programming interface
+ * @export
+ */
+export const OrganizationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = OrganizationApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Partially update organization setup state
+         * @param {OrganizationSetup} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async organizationSetupPartialUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSetup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.organizationSetupPartialUpdate(data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['OrganizationApi.organizationSetupPartialUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Retrieve organization setup state
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async organizationSetupRead(xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSetup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.organizationSetupRead(xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['OrganizationApi.organizationSetupRead']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Update organization setup state
+         * @param {OrganizationSetup} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async organizationSetupUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSetup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.organizationSetupUpdate(data, xUserID, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['OrganizationApi.organizationSetupUpdate']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * OrganizationApi - factory interface
+ * @export
+ */
+export const OrganizationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = OrganizationApiFp(configuration)
+    return {
+        /**
+         * Partially update organization setup state
+         * @param {OrganizationSetup} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        organizationSetupPartialUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSetup> {
+            return localVarFp.organizationSetupPartialUpdate(data, xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve organization setup state
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        organizationSetupRead(xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSetup> {
+            return localVarFp.organizationSetupRead(xUserID, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update organization setup state
+         * @param {OrganizationSetup} data 
+         * @param {string} [xUserID] User ID (required when using API key)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        organizationSetupUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSetup> {
+            return localVarFp.organizationSetupUpdate(data, xUserID, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * OrganizationApi - interface
+ * @export
+ * @interface OrganizationApi
+ */
+export interface OrganizationApiInterface {
+    /**
+     * Partially update organization setup state
+     * @param {OrganizationSetup} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApiInterface
+     */
+    organizationSetupPartialUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSetup>;
+
+    /**
+     * Retrieve organization setup state
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApiInterface
+     */
+    organizationSetupRead(xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSetup>;
+
+    /**
+     * Update organization setup state
+     * @param {OrganizationSetup} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApiInterface
+     */
+    organizationSetupUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSetup>;
+
+}
+
+/**
+ * OrganizationApi - object-oriented interface
+ * @export
+ * @class OrganizationApi
+ * @extends {BaseAPI}
+ */
+export class OrganizationApi extends BaseAPI implements OrganizationApiInterface {
+    /**
+     * Partially update organization setup state
+     * @param {OrganizationSetup} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApi
+     */
+    public organizationSetupPartialUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return OrganizationApiFp(this.configuration).organizationSetupPartialUpdate(data, xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve organization setup state
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApi
+     */
+    public organizationSetupRead(xUserID?: string, options?: RawAxiosRequestConfig) {
+        return OrganizationApiFp(this.configuration).organizationSetupRead(xUserID, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update organization setup state
+     * @param {OrganizationSetup} data 
+     * @param {string} [xUserID] User ID (required when using API key)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApi
+     */
+    public organizationSetupUpdate(data: OrganizationSetup, xUserID?: string, options?: RawAxiosRequestConfig) {
+        return OrganizationApiFp(this.configuration).organizationSetupUpdate(data, xUserID, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
