@@ -755,13 +755,13 @@ export interface Goal {
      * @type {Array<UserListOfUserFieldsInner>}
      * @memberof Goal
      */
-    'owner_users'?: Array<UserListOfUserFieldsInner>;
+    'owner_users'?: Array<UserListOfUserFieldsInner> | null;
     /**
      * Can accept either a list of program IDs (strings) or a list of objects with id field
      * @type {Array<ProgramsListInner>}
      * @memberof Goal
      */
-    'programs'?: Array<ProgramsListInner>;
+    'programs'?: Array<ProgramsListInner> | null;
     /**
      * Can accept either a list of user IDs (strings) or a list of objects with id field
      * @type {Array<UserListOfUserFieldsInner>}
